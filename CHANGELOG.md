@@ -1,3 +1,66 @@
+## 1.31.0
+This release adds support for multiple scan filters at the same time.
+* **[Feature]** iOS: support multiple scan filters at the same time
+
+## 1.30.9
+* **[Improve]** assert: fbp only supprts a single `scan` filter at a time
+
+## 1.30.8
+* **[Improve]** android: discoverServices: add `subscribeToServicesChanged` option
+
+## 1.30.7
+* **[Fix]** `autoConnect` not always working (bug in 1.30.0)
+* **[Fix]**  perf: `NewStreamWithInitialValue` was not closing its streams
+* **[Feature]** add `device.isAutoConnectEnabled`
+
+## 1.30.6
+* **[Improve]** ios log more detail
+* **[Feature]** add `adapterStateNow` getter
+
+## 1.30.5
+* **[Fix]** iOS build error (regression 1.30.4)
+* **[Fix]** android `autoConnect` was broken (regression 1.30.1)
+
+## 1.30.4
+* **[Fix]** Perf: must close `adapterState`, `bondState` & `scanResults` BufferStreams
+* **[Improve]** iOS: set `kCBConnectOptionEnableAutoReconnect` option
+* **[Improve]** requestMtu: add `predelay` argument
+* **[Example]** only call `setState` if mounted
+
+## 1.30.3
+* **[Fix]** android: connect crashes (regression in 1.30.0)
+
+## 1.30.2
+* **[Improve]** auto connect: assert that mtu is null in `connect`
+
+## 1.30.1
+* **[Feature]** auto connect: remove `setAutoConnect` function added in 1.30.0 and go back to using `connect:autoConnect` parameter
+
+## 1.30.0
+This release greatly improves `autoconnect` support on Android, and adds iOS support.
+* **[Improve]** android: auto connect is no longer canceled when bluetooth is turned off
+* **[Fix]** android: `deadObjectExceptions` when bluetooth is turned off
+
+## 1.29.13
+* **[Improve]**  android: add delay before `requestMtu` is called to work around `discoverServices` timeout
+
+## 1.29.12
+* **[Fix]** android: `CALLBACK_TYPE_FIRST_MATCH` causes scanning issues (regression in 1.27.0)
+* **[Fix]** android: `withKeywords` wasn't filtering out adverts that have no scan record (bug in original feature)
+
+## 1.29.11
+* **[Fix]** android: `remoteId` was wrong (regression in 1.29.10)
+
+## 1.29.10
+* **[Fix]** android: `isNotifying` was not updated (regression in 1.28.5)
+* **[Improve]** accidentally logging 'canceling connection in progress' every time
+
+## 1.29.9
+* No changes. This version was accidentally skipped.
+
+## 1.29.8
+* **[Fix]** android: crash due to wrong type cast (regression in 1.29.7)
+
 ## 1.29.7
 * **[Fix]** scan errors should be pushed to `scanResults` stream (bug in original `flutter_blue`)
 * **[Fix]** android: scan: when `continuousUpdates` is `false`, don't filter non-duplicate adverts (bug in original feature)
@@ -67,8 +130,8 @@
 * **[Improve]** guid: more consistent handling of 16, 32, vs 128 bit guids
 
 ## 1.28.1
-* **[Feature]** scanning: add `serviceData` filter
-* **[Feature]** scanning: add `msd` filter
+* **[Feature]** scanning: add `withServiceData` filter
+* **[Feature]** scanning: add `withMsd` filter
 
 ## 1.28.0
 * **[Breaking Change]** `guid.toString()` now returns 16-bit short uuid when possible
